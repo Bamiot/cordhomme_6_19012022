@@ -1,0 +1,28 @@
+.spinner {
+  position: fixed;
+  display: inline-block;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #666a;
+  &::after {
+    content: ' ';
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    margin-top: calc(50vh - 32px);
+    border-radius: 50%;
+    border: 6px solid $primary-color;
+    border-color: $primary-color transparent $secondary-color transparent;
+    animation: spinner 1.5s ease-in-out 0s infinite both;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
