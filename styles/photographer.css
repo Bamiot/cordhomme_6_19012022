@@ -112,7 +112,6 @@ header .logo {
 body {
   font-family: 'DM Sans', sans-serif;
   color: #000;
-  background-color: #fafafa;
 }
 
 #contact_modal {
@@ -123,6 +122,47 @@ body {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.photograph-header .photographer-info {
+  margin: auto;
+}
+
+.photograph-header .name {
+  font-size: 64px;
+  line-height: 69px;
+  color: #d3573c;
+}
+
+.photograph-header .location {
+  font-size: 24px;
+  line-height: 31px;
+  color: #901c1c;
+}
+
+.photograph-header .tagline {
+  font-size: 18px;
+  line-height: 23px;
+  color: #525252;
+}
+
+.photograph-header .contact_button {
+  margin: auto auto;
+}
+
+.photograph-header img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto auto;
 }
 
 .contact_button {
@@ -136,6 +176,13 @@ body {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.contact_button:hover {
+  background-color: #db8876;
+  color: #000;
 }
 
 .modal {

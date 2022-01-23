@@ -9,9 +9,45 @@
 }
 
 .photograph-header {
-  background-color: #fafafa;
+  background-color: $background-color;
   height: 300px;
   margin: 0 100px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+
+  .photographer-info {
+    margin: auto;
+  }
+
+  .name {
+    font-size: 64px;
+    line-height: 69px;
+    color: $secondary-color;
+  }
+  .location {
+    font-size: 24px;
+    line-height: 31px;
+    color: $primary-color;
+  }
+  .tagline {
+    font-size: 18px;
+    line-height: 23px;
+    color: $gray;
+  }
+
+  .contact_button {
+    margin: auto auto;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto auto;
+  }
 }
 
 .contact_button {
@@ -22,9 +58,14 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901c1c;
+  background-color: $primary-color;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background-color: $hover-color;
+    color: $black;
+  }
 }
 
 .modal {

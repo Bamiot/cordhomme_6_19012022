@@ -9,7 +9,23 @@ async function getPhotographer(id) {
   }
 }
 
-async function displayData() {}
+async function displayData(photographer) {
+  const photographerHeader = document.querySelector('.photograph-header')
+  const html = `
+    <h1 class="name">${photographer.name}</h1>
+    <div>
+      <p class="location">${photographer.city}, ${photographer.country}</p>
+      <p class="tagline">${photographer.tagline}</p>
+    </div>
+  `
+  const div = document.createElement('div')
+  div.classList.add('photographer-info')
+  div.innerHTML = html
+  photographerHeader.prepend(div)
+  const img = document.createElement('img')
+  img.src = `assets/photographers/${photographer.portrait}`
+  photographerHeader.append(img)
+}
 
 async function init() {
   // recupere l'id du photographe dans l'url
@@ -19,7 +35,7 @@ async function init() {
   // Récupère les datas du photographe
   const { photographer, media } = await getPhotographer(photographersId)
   console.log(photographer, media)
-  displayData()
+  displayData(photographer)
 }
 
 init()
