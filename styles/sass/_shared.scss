@@ -1,19 +1,18 @@
-@import "sass-utils/normalize";
-@import "sass-utils/mixin";
-@import "sass-utils/variables";
-@import "sass-utils/functions";
-@import "sass-utils/class";
+@import 'sass-utils/normalize';
+@import 'sass-utils/mixin';
+@import 'sass-utils/variables';
+@import 'sass-utils/functions';
+@import 'sass-utils/class';
 
 // component
-@import "components/spinner";
+@import 'components/spinner';
 
 // layout
-@import "layout/header";
+@import 'layout/header';
 
 // global styles
 body {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  color: $white;
-  background-color: $dark-gray;
+  font-family: 'DM Sans', sans-serif;
+  color: $black;
+  background-color: $background-color;
 }

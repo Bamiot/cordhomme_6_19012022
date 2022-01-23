@@ -1,24 +1,20 @@
 //###// COLOR //###//
 /* B&W */
 $black: #000;
-$white: #fff;
-$light-gray: #666;
-$gray: #444;
+$white: #fafafa;
+$light-gray: #757575;
+$gray: #525252;
 $dark-gray: #222;
-/* primary color */
+
 $red: #f94144;
-$orange: #f9844a;
+$orange: #d3573c;
 $yellow: #f9c74f;
 $green: #90be6d;
 $blue: #5778e6;
-/* secondary color */
-$blue-gray: #34495e;
-$yellow-orange: #f39c12;
-$dark-green: #43aa8b;
-$pink: #f07de6;
-/* theme color */
-$primary-color: $blue;
-$secondary-color: $yellow;
-$ternary-color: $pink;
 
-$background-color: $gray;
+$dark-red: #901c1c;
+/* theme color */
+$primary-color: $dark-red;
+$secondary-color: $orange;
+
+$background-color: $white;

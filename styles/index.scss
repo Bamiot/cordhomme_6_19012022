@@ -1,5 +1,64 @@
-@import "sass/shared.scss";
+@import 'sass/shared';
 
 // component
 
 // layout
+
+main {
+  margin-bottom: 50px;
+}
+
+.photographer_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+
+  .photographer_card {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2 {
+      color: $secondary-color;
+      font-size: 36px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 47px;
+      text-align: center;
+    }
+
+    img {
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .location {
+      color: $primary-color;
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    .tagline {
+      font-size: 10px;
+      line-height: 13px;
+      color: $black;
+    }
+
+    .price {
+      font-size: 9px;
+      line-height: 12px;
+      color: $light-gray;
+    }
+  }
+}
