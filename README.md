@@ -1,3 +1,1 @@
-# projet P6 - Parcours Front-end
-
-## Fish-Eye
+[Github page](https://bamiot.github.io/cordhomme_6_19012022/)
