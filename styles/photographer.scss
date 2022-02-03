@@ -12,6 +12,7 @@
   background-color: $background-color;
   height: 300px;
   margin: 0 100px;
+  padding: 20px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -47,6 +48,30 @@
     border-radius: 50%;
     object-fit: cover;
     margin: auto auto;
+  }
+
+  .photograph-like {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: -5px;
+    right: 1em;
+    background-color: $hover-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    i {
+      margin-right: 20px;
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        color: #fa2cfa;
+      }
+    }
   }
 }
 

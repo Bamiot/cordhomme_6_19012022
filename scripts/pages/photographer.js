@@ -17,7 +17,15 @@ async function displayData(photographer) {
       <p class="location">${photographer.city}, ${photographer.country}</p>
       <p class="tagline">${photographer.tagline}</p>
     </div>
+    <span class="photograph-like">
+      <p class="like-count">${photographer.likeCount
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</p>
+      <i class="fas fa-heart"></i>
+      <p class="prive">${photographer.price}</p>€/jours
+    </span>
   `
+
   const div = document.createElement('div')
   div.classList.add('photographer-info')
   div.innerHTML = html
@@ -34,6 +42,7 @@ async function init() {
 
   // Récupère les datas du photographe
   const { photographer, media } = await getPhotographer(photographersId)
+  photographer.likeCount = Math.floor(Math.random() * 100000)
   console.log(photographer, media)
   displayData(photographer)
 }
