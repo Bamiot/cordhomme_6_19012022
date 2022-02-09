@@ -5,13 +5,26 @@
 // layout
 
 #contact_modal {
+  display: flex;
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff4;
+}
+
+#main {
+  padding: 0 100px;
 }
 
 .photograph-header {
+  border: 1px solid black;
   background-color: $background-color;
   height: 300px;
-  margin: 0 100px;
   padding: 20px;
 
   display: grid;
@@ -93,10 +106,28 @@
   }
 }
 
+.filters {
+  position: relative;
+  display: block;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+  select {
+    background-color: $primary-color;
+    color: white;
+    padding: 20px 23px;
+    border-radius: 5px;
+    option {
+      padding: inherit;
+    }
+  }
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +149,17 @@
     font-weight: normal;
     text-align: center;
   }
+  textarea {
+    width: 100%;
+    height: 140px;
+    resize: none;
+    border-radius: 5px;
+  }
+  textarea,
+  input {
+    font-size: 36px;
+    padding-left: 5px;
+  }
 }
 
 form {
@@ -135,8 +177,7 @@ form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+    align-items: flex-start;
   }
 
   input {
@@ -144,5 +185,24 @@ form {
     height: 68px;
     border: none;
     border-radius: 5px;
+  }
+
+  .formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 16px;
+    color: #dd1428;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible='true']::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible='true'] .text-control {
+    border: 2px solid #e54858;
   }
 }

@@ -25,9 +25,23 @@ button {
   cursor: pointer;
 }
 
+input,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
 select {
   appearance: none;
   outline: 0;
   border: 0;
   box-shadow: none;
+  font: inherit;
+  &:focus {
+    outline: none;
+  }
+  &::-ms-expand {
+    display: none;
+  }
 }

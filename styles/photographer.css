@@ -25,6 +25,11 @@ button {
   cursor: pointer;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 select {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -33,6 +38,15 @@ select {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+  font: inherit;
+}
+
+select:focus {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 /* B&W */
@@ -115,13 +129,32 @@ body {
 }
 
 #contact_modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff4;
+}
+
+#main {
+  padding: 0 100px;
 }
 
 .photograph-header {
+  border: 1px solid black;
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
   padding: 20px;
   display: -ms-grid;
   display: grid;
@@ -224,10 +257,30 @@ body {
   color: #000;
 }
 
+.filters {
+  position: relative;
+  display: block;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.filters select {
+  background-color: #901c1c;
+  color: white;
+  padding: 20px 23px;
+  border-radius: 5px;
+}
+
+.filters select option {
+  padding: inherit;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
+  max-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -262,6 +315,19 @@ body {
   text-align: center;
 }
 
+.modal textarea {
+  width: 100%;
+  height: 140px;
+  resize: none;
+  border-radius: 5px;
+}
+
+.modal textarea,
+.modal input {
+  font-size: 36px;
+  padding-left: 5px;
+}
+
 form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -290,10 +356,9 @@ form div {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  -webkit-box-align: self-start;
-      -ms-flex-align: self-start;
-          align-items: self-start;
-  margin-bottom: 26px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 form input {
@@ -301,5 +366,27 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+form .formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 16px;
+  color: #dd1428;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+form .formData[data-error-visible='true']::after {
+  opacity: 1;
+}
+
+form .formData[data-error-visible='true'] .text-control {
+  border: 2px solid #e54858;
 }
 /*# sourceMappingURL=photographer.css.map */

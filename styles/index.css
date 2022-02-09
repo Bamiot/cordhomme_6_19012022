@@ -25,6 +25,11 @@ button {
   cursor: pointer;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 select {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -33,6 +38,15 @@ select {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+  font: inherit;
+}
+
+select:focus {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 /* B&W */

@@ -35,7 +35,7 @@ async function displayData(photographer) {
   photographerHeader.append(img)
 }
 
-async function init() {
+;(async () => {
   // recupere l'id du photographe dans l'url
   const url = new URL(window.location.href)
   const photographersId = parseInt(url.searchParams.get('id'))
@@ -45,6 +45,4 @@ async function init() {
   photographer.likeCount = Math.floor(Math.random() * 100000)
   console.log(photographer, media)
   displayData(photographer)
-}
-
-init()
+})()
