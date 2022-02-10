@@ -10,6 +10,7 @@ async function getPhotographer(id) {
 }
 
 async function displayData(photographer) {
+  // page header
   const photographerHeader = document.querySelector('.photograph-header')
   const html = `
     <h1 class="name">${photographer.name}</h1>
@@ -33,6 +34,12 @@ async function displayData(photographer) {
   const img = document.createElement('img')
   img.src = `assets/photographers/${photographer.portrait}`
   photographerHeader.append(img)
+
+  // form header
+  const chn = document.createElement('h2')
+  chn.innerHTML = `${photographer.name}`
+  const contactHeader = document.querySelector('#contact_modal header')
+  contactHeader.appendChild(chn)
 }
 
 ;(async () => {
@@ -44,5 +51,6 @@ async function displayData(photographer) {
   const { photographer, media } = await getPhotographer(photographersId)
   photographer.likeCount = Math.floor(Math.random() * 100000)
   console.log(photographer, media)
+
   displayData(photographer)
 })()

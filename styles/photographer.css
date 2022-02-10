@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -126,25 +126,6 @@ header .logo {
 body {
   font-family: 'DM Sans', sans-serif;
   color: #000;
-}
-
-#contact_modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #fff4;
 }
 
 #main {
@@ -273,14 +254,26 @@ body {
 }
 
 .filters select option {
-  padding: inherit;
+  padding: 20px 23px;
 }
 
-.modal {
+#contact_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff4;
+  overflow-y: scroll;
+}
+
+#contact_modal .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
-  max-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,44 +284,58 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   padding: 35px;
-  margin: auto;
+  margin: 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
-.modal header {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+#contact_modal .modal header {
+  position: relative;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.modal header img {
+#contact_modal .modal header img {
   cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
-.modal header h2 {
+#contact_modal .modal header h2 {
+  text-align: left;
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
 }
 
-.modal textarea {
+#contact_modal .modal textarea {
   width: 100%;
   height: 140px;
   resize: none;
   border-radius: 5px;
 }
 
-.modal textarea,
-.modal input {
+#contact_modal .modal textarea,
+#contact_modal .modal input {
   font-size: 36px;
   padding-left: 5px;
 }
 
-form {
+#contact_modal .modal form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,12 +349,12 @@ form {
           align-items: flex-start;
 }
 
-form label {
+#contact_modal .modal form label {
   color: #312e2e;
   font-size: 36px;
 }
 
-form div {
+#contact_modal .modal form div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,16 +366,17 @@ form div {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 10px;
 }
 
-form input {
+#contact_modal .modal form input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
 }
 
-form .formData[data-error]::after {
+#contact_modal .modal form .formData[data-error]::after {
   content: attr(data-error);
   font-size: 16px;
   color: #dd1428;
@@ -382,11 +390,11 @@ form .formData[data-error]::after {
   transition: 0.3s;
 }
 
-form .formData[data-error-visible='true']::after {
+#contact_modal .modal form .formData[data-error-visible='true']::after {
   opacity: 1;
 }
 
-form .formData[data-error-visible='true'] .text-control {
+#contact_modal .modal form .formData[data-error-visible='true'] .text-control {
   border: 2px solid #e54858;
 }
 /*# sourceMappingURL=photographer.css.map */
