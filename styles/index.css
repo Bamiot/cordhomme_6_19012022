@@ -168,7 +168,9 @@ select::-ms-expand {
   margin: 30px 0;
 }
 
+.media_card video,
 .media_card img {
+  cursor: pointer;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -232,6 +234,24 @@ select::-ms-expand {
 .media_card figcaption p,
 .media_card figcaption h2 {
   font-size: 24px;
+}
+
+.media_card.video {
+  position: relative;
+}
+
+.media_card.video::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(calc(15px - 50%), calc(-50% - 15px)) scale(1.5, 0.8);
+          transform: translate(calc(15px - 50%), calc(-50% - 15px)) scale(1.5, 0.8);
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 30px;
+  border-color: transparent transparent transparent #fff8;
 }
 
 header {
