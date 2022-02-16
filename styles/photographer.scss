@@ -66,11 +66,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
-      &:hover {
-        color: #fa2cfa;
-      }
     }
   }
 }
@@ -95,18 +90,13 @@
 
 .filters {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: row;
   margin: 20px 0;
   font-size: 18px;
   font-weight: 700;
-  select {
-    background-color: $primary-color;
-    color: white;
-    padding: 20px 23px;
-    border-radius: 5px;
-    option {
-      padding: 20px 23px;
-    }
+  label {
+    margin-right: 20px;
   }
 }
 
@@ -209,4 +199,11 @@
       }
     }
   }
+}
+
+#media-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

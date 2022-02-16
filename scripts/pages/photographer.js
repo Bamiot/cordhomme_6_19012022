@@ -9,7 +9,7 @@ async function getPhotographer(id) {
   }
 }
 
-async function displayData(photographer) {
+async function displayHeader(photographer) {
   // page header
   const photographerHeader = document.querySelector('.photograph-header')
   const html = `
@@ -23,7 +23,7 @@ async function displayData(photographer) {
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</p>
       <i class="fas fa-heart"></i>
-      <p class="prive">${photographer.price}</p>€/jours
+      <p class="price">${photographer.price}€/jours</p>
     </span>
   `
 
@@ -42,6 +42,15 @@ async function displayData(photographer) {
   contactHeader.appendChild(chn)
 }
 
+async function displayMedia(medias, photographer) {
+  const container = document.querySelector('#media-container')
+  for (const media of medias) {
+    const mediaModel = mediaFactory(media, photographer)
+    const mediaDOM = mediaModel.getMediaDOM()
+    container.appendChild(mediaDOM)
+  }
+}
+
 ;(async () => {
   // recupere l'id du photographe dans l'url
   const url = new URL(window.location.href)
@@ -49,8 +58,9 @@ async function displayData(photographer) {
 
   // Récupère les datas du photographe
   const { photographer, media } = await getPhotographer(photographersId)
-  photographer.likeCount = Math.floor(Math.random() * 100000)
+  photographer.likeCount = media.map((m) => m.likes).reduce((a, b) => a + b, 0)
   console.log(photographer, media)
 
-  displayData(photographer)
+  displayHeader(photographer)
+  displayMedia(media, photographer)
 })()
