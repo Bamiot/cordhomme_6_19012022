@@ -226,7 +226,7 @@ select::-ms-expand {
   transition: all 0.2s ease-in-out;
 }
 
-.media_card figcaption span i:hover::after {
+.media_card figcaption span i.liked::after, .media_card figcaption span i:hover::after {
   -webkit-transform: scale(1);
           transform: scale(1);
 }

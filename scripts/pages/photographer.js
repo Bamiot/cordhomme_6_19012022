@@ -109,6 +109,24 @@ async function getPhotographer(id) {
         lbIndex = i
         openLightbox(media[lbIndex])
       }
+      if (e.target.closest('#like > i')) {
+        const likeBtn = e.target.closest('#like > i')
+        const likeLocal = e.target.closest('#like').childNodes[1]
+        const likeGlobal = document.querySelector(`.photograph-like > .like-count`)
+
+        const likeInc = (el, decr = false) =>
+          (el.innerHTML = parseInt(el.innerHTML) + (decr ? -1 : 1))
+
+        if (likeBtn.classList.contains('liked')) {
+          likeBtn.classList.toggle('liked', false)
+          likeInc(likeLocal, true)
+          likeInc(likeGlobal, true)
+        } else {
+          likeBtn.classList.toggle('liked', true)
+          likeInc(likeLocal)
+          likeInc(likeGlobal)
+        }
+      }
     })
   })
 })()

@@ -36,8 +36,11 @@
           transform: scale(0);
           transition: all 0.2s ease-in-out;
         }
-        &:hover::after {
-          transform: scale(1);
+        &.liked,
+        &:hover {
+          &::after {
+            transform: scale(1);
+          }
         }
       }
     }

@@ -26,9 +26,9 @@ export default function mediaFactory(
     figure.innerHTML = `
       <figcaption>
         <h2>${title}</h2>
-        <span>
+        <span id="like">
           <p>${likes}</p>
-          <i class="fas fa-heart" aria-label='likes' ></i>
+          <i class="fas fa-heart" aria-label='likes'></i>
         </span>
       </figcaption>
     `
