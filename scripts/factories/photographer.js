@@ -1,4 +1,13 @@
-function photographerFactory({ name, portrait, city, country, id, price, tagline }) {
+export default function photographerFactory({
+  name,
+  portrait,
+  city,
+  country,
+  id,
+  price,
+  tagline,
+  likeCount
+}) {
   const picture = `assets/photographers/${portrait}`
 
   function getUserCardDOM() {
@@ -22,5 +31,47 @@ function photographerFactory({ name, portrait, city, country, id, price, tagline
 
     return article
   }
-  return { name, picture, getUserCardDOM }
+
+  function getHeaderInfoDOM() {
+    const div = document.createElement('div')
+    div.classList.add('photographer-info')
+    const html = `
+    <h1 class="name">${name}</h1>
+    <div>
+      <p class="location">${city}, ${country}</p>
+      <p class="tagline">${tagline}</p>
+    </div>
+    <span class="photograph-like">
+      <p class="like-count">${likeCount
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</p>
+      <i class="fas fa-heart"></i>
+      <p class="price">${price}€/jours</p>
+    </span>
+    `
+    div.innerHTML = html
+
+    return div
+  }
+
+  function getHeaderPortraitDOM() {
+    const img = document.createElement('img')
+    img.src = `assets/photographers/${portrait}`
+    return img
+  }
+
+  function getFormHeaderDOM() {
+    const chn = document.createElement('h2')
+    chn.innerHTML = `${name}`
+    return chn
+  }
+
+  return {
+    name,
+    picture,
+    getUserCardDOM,
+    getHeaderInfoDOM,
+    getHeaderPortraitDOM,
+    getFormHeaderDOM
+  }
 }

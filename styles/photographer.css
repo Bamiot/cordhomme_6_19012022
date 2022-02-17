@@ -238,6 +238,7 @@ select::-ms-expand {
 
 .media_card.video {
   position: relative;
+  cursor: pointer;
 }
 
 .media_card.video::after {
@@ -300,6 +301,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #fffe;
+  z-index: 5;
 }
 
 .lightbox.active {
@@ -354,6 +356,7 @@ body {
 .lb-ctrl {
   display: block;
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 10px;
@@ -364,7 +367,7 @@ body {
 }
 
 .prev {
-  left: 30px;
+  left: 20px;
   top: 50%;
 }
 
@@ -434,6 +437,7 @@ body {
 }
 
 .photograph-header .photograph-like {
+  z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

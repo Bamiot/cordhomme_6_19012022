@@ -51,6 +51,7 @@
 // play button
 .media_card.video {
   position: relative;
+  cursor: pointer;
   &::after {
     content: ' ';
     position: absolute;
