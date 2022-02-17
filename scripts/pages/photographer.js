@@ -2,7 +2,7 @@ import mediaFactory from '../factories/media.js'
 import photographerFactory from '../factories/photographer.js'
 
 async function getPhotographer(id) {
-  const response = await fetch('./data/photographers.json')
+  const response = await fetch('../data/photographers.json')
   const data = await response.json()
   const photographer = data.photographers.find((photographer) => photographer.id === id)
   const media = data.media.filter((media) => media.photographerId === id)

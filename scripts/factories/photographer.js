@@ -8,7 +8,7 @@ export default function photographerFactory({
   tagline,
   likeCount
 }) {
-  const picture = `assets/photographers/${portrait}`
+  const picture = `../assets/photographers/${portrait}`
 
   function getUserCardDOM() {
     const article = document.createElement('article')
@@ -56,7 +56,7 @@ export default function photographerFactory({
 
   function getHeaderPortraitDOM() {
     const img = document.createElement('img')
-    img.src = `assets/photographers/${portrait}`
+    img.src = picture
     return img
   }
 

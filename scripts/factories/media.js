@@ -2,19 +2,19 @@ export default function mediaFactory(
   { date, image, video, likes, photographerId, title, price },
   { name, portrait, city, country, id, tagline }
 ) {
-  const path = name.split(' ')[0].split('-').join(' ')
+  const path = (el) => `../assets/images/${name.split(' ')[0].split('-').join(' ')}/${el}`
 
   function videoDOM() {
     const videoEL = document.createElement('video')
     videoEL.innerHTML = `
-      <source src="assets/images/${path}/${video}" type='video/mp4'>
+      <source src="${path(video)}" type='video/mp4'>
       <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>`
     return videoEL
   }
 
   function imageDOM() {
     const img = document.createElement('img')
-    img.src = `assets/images/${path}/${image}`
+    img.src = `${path(image)}`
     img.alt = title
     return img
   }
