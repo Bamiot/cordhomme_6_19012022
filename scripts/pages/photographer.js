@@ -59,8 +59,44 @@ async function displayMedia(medias, photographer) {
   // Récupère les datas du photographe
   const { photographer, media } = await getPhotographer(photographersId)
   photographer.likeCount = media.map((m) => m.likes).reduce((a, b) => a + b, 0)
-  console.log(photographer, media)
 
   displayHeader(photographer)
   displayMedia(media, photographer)
+
+  const mediasCardDOM = document.querySelectorAll('.media_card')
+  const lightbox = document.querySelector('.lightbox')
+  const lbMedia = document.querySelector('#lightbox-media')
+  const lbTitle = document.querySelector('#lightbox-title')
+
+  document.querySelector('#ctrl-prev').addEventListener('click', () => {})
+  document.querySelector('#ctrl-next').addEventListener('click', () => {})
+  document.querySelector('#ctrl-close').addEventListener('click', () => {
+    lightbox.classList.remove('active')
+    lbMedia.innerHTML = ''
+  })
+
+  mediasCardDOM.forEach((el, i) => {
+    el.addEventListener('click', () => {
+      let mediaElement
+      const src = `assets/images/${photographer.name
+        .split(' ')[0]
+        .split('-')
+        .join(' ')}/${media[i].image || media[i].video}`
+      if (el.classList.contains('video')) {
+        mediaElement = document.createElement('video')
+        // mediaElement.setAttribute('controls')
+        mediaElement.innerHTML = `
+          <source src=${src} type='video/mp4'>
+          <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>
+        `
+      } else {
+        mediaElement = document.createElement('img')
+        mediaElement.src = src
+      }
+      mediaElement.alt = media[i].title
+      lbTitle.innerHTML = media[i].title
+      lbMedia.appendChild(mediaElement)
+      lightbox.classList.add('active')
+    })
+  })
 })()
