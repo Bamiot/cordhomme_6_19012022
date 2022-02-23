@@ -4,8 +4,9 @@ export default function mediaFactory(
 ) {
   const path = (el) => `../assets/images/${name.split(' ')[0].split('-').join(' ')}/${el}`
 
-  function videoDOM() {
+  function videoDOM(controle = false) {
     const videoEL = document.createElement('video')
+    if (controle) videoEL.setAttribute('controls', true)
     videoEL.innerHTML = `
       <source src="${path(video)}" type='video/mp4'>
       <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>`
@@ -39,7 +40,7 @@ export default function mediaFactory(
   function getLightboxMediaDOM() {
     let mediaElement
     if (video) {
-      mediaElement = videoDOM()
+      mediaElement = videoDOM(true)
     } else {
       mediaElement = imageDOM()
     }

@@ -27,6 +27,7 @@ async function getPhotographer(id) {
   const lbTitle = document.querySelector('#lightbox-title')
 
   let lbIndex = 0
+  let lbOpen = false
 
   async function displayHeader() {
     const photographerModel = photographerFactory(photographer)
@@ -60,11 +61,13 @@ async function getPhotographer(id) {
     lbTitle.innerHTML = m.title
     lbMedia.appendChild(mediaElement)
     lightbox.classList.add('active')
+    lbOpen = true
   }
 
   function lbClose() {
     lightbox.classList.remove('active')
     lbMedia.innerHTML = ''
+    lbOpen = false
   }
 
   function lbPrev() {
@@ -86,13 +89,13 @@ async function getPhotographer(id) {
   document.addEventListener('keydown', (e) => {
     switch (e.key) {
       case 'Escape':
-        lbClose()
+        if (lbOpen) lbClose()
         break
       case 'ArrowLeft':
-        lbPrev()
+        if (lbOpen) lbPrev()
         break
       case 'ArrowRight':
-        lbNext()
+        if (lbOpen) lbNext()
         break
       default:
         break
@@ -105,10 +108,12 @@ async function getPhotographer(id) {
   const mediasCardDOM = document.querySelectorAll('.media_card')
   mediasCardDOM.forEach((el, i) => {
     el.addEventListener('click', (e) => {
-      if (e.target.closest('img') || e.target.closest('video')) {
+      // open lightbox
+      if (e.target.closest('figure') && !lbOpen && !e.target.closest('figcaption')) {
         lbIndex = i
         openLightbox(media[lbIndex])
       }
+      // handle like
       if (e.target.closest('#like > i')) {
         const likeBtn = e.target.closest('#like > i')
         const likeLocal = e.target.closest('#like').childNodes[1]
