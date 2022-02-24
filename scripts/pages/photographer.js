@@ -164,5 +164,5 @@ async function getPhotographer(id) {
   })
 
   displayHeader(photographer)
-  sortAndDisplayMedia(sortByDate)
+  sortAndDisplayMedia(sortByLikes)
 })()
