@@ -19,7 +19,7 @@ async function getPhotographer(id) {
   const photographersId = parseInt(url.searchParams.get('id'))
 
   // Récupère les datas du photographe
-  const { photographer, media } = await getPhotographer(photographersId)
+  let { photographer, media } = await getPhotographer(photographersId)
   photographer.likeCount = media.map((m) => m.likes).reduce((a, b) => a + b, 0)
 
   const lightbox = document.querySelector('.lightbox')
@@ -82,6 +82,52 @@ async function getPhotographer(id) {
     openLightbox(media[lbIndex])
   }
 
+  function sortByDate(a, b) {
+    return new Date(b.date) - new Date(a.date)
+  }
+
+  function sortByLikes(a, b) {
+    return b.likes - a.likes
+  }
+
+  function sortByTitle(a, b) {
+    return a.title.localeCompare(b.title)
+  }
+
+  function sortAndDisplayMedia(sort) {
+    media = media.sort(sort)
+    displayMedia(media, photographer)
+    const mediasCardDOM = document.querySelectorAll('.media_card')
+    mediasCardDOM.forEach((el, i) => {
+      el.addEventListener('click', (e) => {
+        // open lightbox
+        if (e.target.closest('figure') && !lbOpen && !e.target.closest('figcaption')) {
+          lbIndex = i
+          openLightbox(media[lbIndex])
+        }
+        // handle like
+        if (e.target.closest('#like > i')) {
+          const likeBtn = e.target.closest('#like > i')
+          const likeLocal = e.target.closest('#like').childNodes[1]
+          const likeGlobal = document.querySelector(`.photograph-like > .like-count`)
+
+          const likeInc = (el, decr = false) =>
+            (el.innerHTML = parseInt(el.innerHTML) + (decr ? -1 : 1))
+
+          if (likeBtn.classList.contains('liked')) {
+            likeBtn.classList.toggle('liked', false)
+            likeInc(likeLocal, true)
+            likeInc(likeGlobal, true)
+          } else {
+            likeBtn.classList.toggle('liked', true)
+            likeInc(likeLocal)
+            likeInc(likeGlobal)
+          }
+        }
+      })
+    })
+  }
+
   document.querySelector('#ctrl-prev').addEventListener('click', lbPrev)
   document.querySelector('#ctrl-next').addEventListener('click', lbNext)
   document.querySelector('#ctrl-close').addEventListener('click', lbClose)
@@ -102,39 +148,21 @@ async function getPhotographer(id) {
     }
   })
   document.querySelector('#sort-select').addEventListener('click', (e) => {
-    console.log(e.target.getAttribute('value'))
+    switch (e.target.getAttribute('value').toLowerCase()) {
+      case 'date':
+        sortAndDisplayMedia(sortByDate)
+        break
+      case 'popularity':
+        sortAndDisplayMedia(sortByLikes)
+        break
+      case 'title':
+        sortAndDisplayMedia(sortByTitle)
+        break
+      default:
+        break
+    }
   })
 
   displayHeader(photographer)
-  displayMedia(media, photographer)
-
-  const mediasCardDOM = document.querySelectorAll('.media_card')
-  mediasCardDOM.forEach((el, i) => {
-    el.addEventListener('click', (e) => {
-      // open lightbox
-      if (e.target.closest('figure') && !lbOpen && !e.target.closest('figcaption')) {
-        lbIndex = i
-        openLightbox(media[lbIndex])
-      }
-      // handle like
-      if (e.target.closest('#like > i')) {
-        const likeBtn = e.target.closest('#like > i')
-        const likeLocal = e.target.closest('#like').childNodes[1]
-        const likeGlobal = document.querySelector(`.photograph-like > .like-count`)
-
-        const likeInc = (el, decr = false) =>
-          (el.innerHTML = parseInt(el.innerHTML) + (decr ? -1 : 1))
-
-        if (likeBtn.classList.contains('liked')) {
-          likeBtn.classList.toggle('liked', false)
-          likeInc(likeLocal, true)
-          likeInc(likeGlobal, true)
-        } else {
-          likeBtn.classList.toggle('liked', true)
-          likeInc(likeLocal)
-          likeInc(likeGlobal)
-        }
-      }
-    })
-  })
+  sortAndDisplayMedia(sortByDate)
 })()
