@@ -27,9 +27,10 @@
       <span class="filters">
         <label for="sort-select">Trier par </label>
         <div value="date" id="sort-select" class="primary-select">
-          <span value="popularity">Popularité</span>
           <span value="date">Date</span>
-          <span value="Title">Titre</span>
+          <span value="popularity">Popularité</span>
+          <span value="title">Titre</span>
+          <i class="indicator fas fa-angle-up"></i>
         </div>
       </span>
       <div id="media-container"></div>
@@ -43,7 +44,7 @@
         <form>
           <div>
             <div class="formData" data-error-visible="false">
-              <label for="first,name">Prénom</label>
+              <label for="firstname">Prénom</label>
               <input type="text" name="firstname" id="firstname" required minlength="2" />
             </div>
             <div class="formData" data-error-visible="false">
@@ -79,6 +80,7 @@
       </figure>
     </div>
     <script src="../scripts/utils/contactForm.js"></script>
+    <script src="../scripts/utils/select.js"></script>
     <script type="module" src="../scripts/pages/photographer.js"></script>
   </body>
 </html>

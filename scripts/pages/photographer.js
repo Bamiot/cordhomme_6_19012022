@@ -101,6 +101,9 @@ async function getPhotographer(id) {
         break
     }
   })
+  document.querySelector('#sort-select').addEventListener('click', (e) => {
+    console.log(e.target.getAttribute('value'))
+  })
 
   displayHeader(photographer)
   displayMedia(media, photographer)
