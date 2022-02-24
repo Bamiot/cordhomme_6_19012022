@@ -596,7 +596,7 @@ body {
 
 #contact_modal .modal textarea {
   width: 100%;
-  height: 140px;
+  height: 130px;
   resize: none;
   border-radius: 5px;
 }
@@ -638,7 +638,7 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #contact_modal .modal form input {
@@ -654,7 +654,6 @@ body {
   color: #dd1428;
   display: block;
   margin-top: 7px;
-  margin-bottom: 7px;
   text-align: left;
   line-height: 0.3;
   opacity: 0;
