@@ -541,6 +541,7 @@ body {
           justify-content: center;
   background-color: #fff4;
   overflow-y: scroll;
+  z-index: 10;
 }
 
 #contact_modal .modal {

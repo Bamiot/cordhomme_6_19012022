@@ -76,9 +76,15 @@ function validForm(event) {
   if (checkFirst() || checkLast() || checkEmail() || checkMessage()) {
   } else {
     // formData.forEach((e) => (e.style.opacity = 0))
-    console.log(event)
-    document.querySelectorAll('.formData input').forEach((e) => (e.value = ''))
-    document.querySelectorAll('.formData textarea').forEach((e) => (e.value = ''))
+
+    document.querySelectorAll('.formData input').forEach((e) => {
+      console.log(e.value)
+      e.value = ''
+    })
+    document.querySelectorAll('.formData textarea').forEach((e) => {
+      console.log(e.value)
+      e.value = ''
+    })
     formDatas.forEach((e) => checkElementError(e, false))
   }
 }

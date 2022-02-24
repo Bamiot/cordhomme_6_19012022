@@ -13,9 +13,9 @@ export default function mediaFactory(
     return videoEL
   }
 
-  function imageDOM() {
+  function imageDOM(light = false) {
     const img = document.createElement('img')
-    img.src = `${path(image)}`
+    img.src = `${path(image.split('.')[0])}${light ? ' _light' : ''}.jpg`
     img.alt = title
     return img
   }
@@ -33,7 +33,7 @@ export default function mediaFactory(
         </span>
       </figcaption>
     `
-    figure.prepend(image ? imageDOM() : videoDOM())
+    figure.prepend(image ? imageDOM(true) : videoDOM())
     return figure
   }
 
