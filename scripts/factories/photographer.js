@@ -9,7 +9,8 @@ export default function photographerFactory({
   likeCount
 }) {
   const picture = `../assets/photographers/${portrait.split('.')[0]} _light.jpg`
-
+  var a
+  console.log(a)
   function getUserCardDOM() {
     const article = document.createElement('article')
     article.classList.add('photographer_card')
@@ -57,6 +58,7 @@ export default function photographerFactory({
   function getHeaderPortraitDOM() {
     const img = document.createElement('img')
     img.src = picture
+    img.alt = name
     return img
   }
 

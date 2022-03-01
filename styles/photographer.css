@@ -179,6 +179,11 @@ select::-ms-expand {
   height: calc(60px - 10px);
 }
 
+.primary-select:hover span:hover {
+  background-color: #db8876;
+  color: #000;
+}
+
 .primary-select:hover span:first-of-type {
   border-radius: 5px 5px 0 0;
 }

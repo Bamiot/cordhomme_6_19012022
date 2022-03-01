@@ -14,7 +14,13 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "prefer-const": "error",
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
     "prettier/prettier": "error"
   }
 }
