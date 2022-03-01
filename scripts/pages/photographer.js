@@ -19,7 +19,10 @@ async function getPhotographer(id) {
   const photographersId = parseInt(url.searchParams.get('id'))
 
   // Récupère les datas du photographe
-  let { photographer, media } = await getPhotographer(photographersId)
+  const photographerData = await getPhotographer(photographersId)
+  let { media } = photographerData
+  const { photographer } = photographerData
+
   photographer.likeCount = media.map((m) => m.likes).reduce((a, b) => a + b, 0)
 
   const lightbox = document.querySelector('.lightbox')
@@ -109,7 +112,7 @@ async function getPhotographer(id) {
         if (e.target.closest('#like > i')) {
           const likeBtn = e.target.closest('#like > i')
           const likeLocal = e.target.closest('#like').childNodes[1]
-          const likeGlobal = document.querySelector(`.photograph-like > .like-count`)
+          const likeGlobal = document.querySelector('.photograph-like > .like-count')
 
           const likeInc = (el, decr = false) =>
             (el.innerHTML = parseInt(el.innerHTML) + (decr ? -1 : 1))

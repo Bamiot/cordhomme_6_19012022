@@ -1,0 +1,26 @@
+{
+  "name": "cordhomme_6_19012022",
+  "version": "1.0.0",
+  "description": "[Github page](https://bamiot.github.io/cordhomme_6_19012022/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bamiot/cordhomme_6_19012022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bamiot/cordhomme_6_19012022/issues"
+  },
+  "homepage": "https://github.com/Bamiot/cordhomme_6_19012022#readme",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}

@@ -1,5 +1,7 @@
 export default function mediaFactory(
+  // eslint-disable-next-line no-unused-vars
   { date, image, video, likes, photographerId, title, price },
+  // eslint-disable-next-line no-unused-vars
   { name, portrait, city, country, id, tagline }
 ) {
   const path = (el) => `../assets/images/${name.split(' ')[0].split('-').join(' ')}/${el}`
