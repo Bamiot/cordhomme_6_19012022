@@ -16,13 +16,13 @@
   </head>
   <body>
     <header>
-      <a href="./index.html">
+      <a href="./index.html" tabindex="1">
         <img src="../assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button">Contactez-moi</button>
+        <button class="contact_button" tabindex="2">Contactez-moi</button>
       </div>
       <span class="filters">
         <label for="sort-select">Trier par </label>
@@ -33,16 +33,28 @@
           role="listbox"
           aria-haspopup="listbox"
           aria-expanded
+          tabindex="-1"
         >
-          <span
+          <button
             value="popularity"
             role="listitem"
             aria-labelledby="sort-select"
             aria-selected
-            >Popularité</span
+            tabindex="3"
           >
-          <span value="date" role="listitem" aria-labelledby="sort-select">Date</span>
-          <span value="title" role="listitem" aria-labelledby="sort-select">Titre</span>
+            Popularité
+          </button>
+          <button value="date" role="listitem" aria-labelledby="sort-select" tabindex="3">
+            Date
+          </button>
+          <button
+            value="title"
+            role="listitem"
+            aria-labelledby="sort-select"
+            tabindex="3"
+          >
+            Titre
+          </button>
           <i class="indicator fas fa-angle-up"></i>
         </div>
       </span>

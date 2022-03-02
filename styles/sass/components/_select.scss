@@ -17,14 +17,11 @@
     right: 10px;
     transition: all 0.2s ease-in-out;
   }
-  &:hover .indicator {
-    transform: rotateX(180deg);
-  }
 
-  span {
+  button {
     background-color: $primary-color;
     cursor: pointer;
-    width: calc(100% - 30px);
+    width: calc(100% - 0px);
     height: 0; //calc(60px - 10px);
     opacity: 0;
     text-align: left;
@@ -50,7 +47,7 @@
     &:first-of-type {
       opacity: 1;
       border-radius: 5px 5px 5px 5px;
-      height: calc(60px - 10px);
+      height: calc(60px - 0px);
       &:after {
         display: none;
       }
@@ -60,17 +57,27 @@
     }
   }
 
-  &:hover {
-    span {
-      opacity: 1;
-      height: calc(60px - 10px);
-      &:hover {
-        background-color: $hover-color;
-        color: #000;
-      }
-      &:first-of-type {
-        border-radius: 5px 5px 0 0;
-      }
+  &:focus .indicator,
+  &:hover .indicator,
+  button:focus ~ .indicator {
+    transform: rotateX(180deg);
+  }
+
+  &:focus button,
+  &:hover button,
+  button:focus ~ button,
+  button:focus ~ button:nth-of-type(2),
+  button:focus {
+    opacity: 1;
+    height: calc(60px - 10px);
+    &:focus,
+    &:hover {
+      background-color: $hover-color;
+      color: #000;
+    }
+    &:first-of-type {
+      border-radius: 5px 5px 0 0;
+      height: calc(60px - 0px);
     }
   }
 }

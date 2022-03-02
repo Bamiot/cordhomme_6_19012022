@@ -118,15 +118,10 @@ select::-ms-expand {
   transition: all 0.2s ease-in-out;
 }
 
-.primary-select:hover .indicator {
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg);
-}
-
-.primary-select span {
+.primary-select button {
   background-color: #901c1c;
   cursor: pointer;
-  width: calc(100% - 30px);
+  width: calc(100% - 0px);
   height: 0;
   opacity: 0;
   text-align: left;
@@ -150,7 +145,7 @@ select::-ms-expand {
   transition: border 0 ease-in-out;
 }
 
-.primary-select span:after {
+.primary-select button:after {
   content: ' ';
   width: 80%;
   height: 1px;
@@ -160,32 +155,56 @@ select::-ms-expand {
   top: 0;
 }
 
-.primary-select span:first-of-type {
+.primary-select button:first-of-type {
   opacity: 1;
   border-radius: 5px 5px 5px 5px;
-  height: calc(60px - 10px);
+  height: calc(60px - 0px);
 }
 
-.primary-select span:first-of-type:after {
+.primary-select button:first-of-type:after {
   display: none;
 }
 
-.primary-select span:last-of-type {
+.primary-select button:last-of-type {
   border-radius: 0 0 5px 5px;
 }
 
-.primary-select:hover span {
+.primary-select:focus .indicator,
+.primary-select:hover .indicator,
+.primary-select button:focus ~ .indicator {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.primary-select:focus button,
+.primary-select:hover button,
+.primary-select button:focus ~ button,
+.primary-select button:focus ~ button:nth-of-type(2),
+.primary-select button:focus {
   opacity: 1;
   height: calc(60px - 10px);
 }
 
-.primary-select:hover span:hover {
+.primary-select:focus button:focus, .primary-select:focus button:hover,
+.primary-select:hover button:focus,
+.primary-select:hover button:hover,
+.primary-select button:focus ~ button:focus,
+.primary-select button:focus ~ button:hover,
+.primary-select button:focus ~ button:nth-of-type(2):focus,
+.primary-select button:focus ~ button:nth-of-type(2):hover,
+.primary-select button:focus:focus,
+.primary-select button:focus:hover {
   background-color: #db8876;
   color: #000;
 }
 
-.primary-select:hover span:first-of-type {
+.primary-select:focus button:first-of-type,
+.primary-select:hover button:first-of-type,
+.primary-select button:focus ~ button:first-of-type,
+.primary-select button:focus ~ button:nth-of-type(2):first-of-type,
+.primary-select button:focus:first-of-type {
   border-radius: 5px 5px 0 0;
+  height: calc(60px - 0px);
 }
 
 .media_card {
@@ -313,6 +332,10 @@ header .logo {
 body {
   font-family: 'DM Sans', sans-serif;
   color: #000;
+}
+
+*:focus {
+  outline: 2px solid #000;
 }
 
 main {

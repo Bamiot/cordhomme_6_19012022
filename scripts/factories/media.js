@@ -12,6 +12,7 @@ export default function mediaFactory(
     videoEL.innerHTML = `
       <source src="${path(video)}" type='video/mp4'>
       <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>`
+    videoEL.tabIndex = -1
     return videoEL
   }
 
@@ -26,6 +27,7 @@ export default function mediaFactory(
     const figure = document.createElement('figure')
     figure.classList.add('media_card')
     figure.classList.toggle('video', !!video)
+    figure.tabIndex = 10
     figure.innerHTML = `
       <figcaption>
         <h2>${title}</h2>

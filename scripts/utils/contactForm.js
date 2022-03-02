@@ -13,11 +13,20 @@ document
   .querySelector('.photograph-header > .contact_button')
   .addEventListener('click', displayModal)
 
+document.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case 'Escape':
+      if (document.querySelector('#contact_modal').style.display !== 'none') closeModal()
+      break
+    default:
+      break
+  }
+})
+
 document.querySelector('.modal img').addEventListener('click', closeModal)
 
 /* form */
 
-const form = document.querySelector('#contact_modal form')
 const formDatas = document.querySelectorAll('.formData')
 const firstname = document.querySelector('#firstname')
 const firstnameWrap = formDatas[0]
@@ -73,8 +82,7 @@ sendButton.addEventListener('click', validForm)
 // validate form
 function validForm(event) {
   event.preventDefault()
-  if (checkFirst() || checkLast() || checkEmail() || checkMessage()) {
-  } else {
+  if (!(checkFirst() || checkLast() || checkEmail() || checkMessage())) {
     // formData.forEach((e) => (e.style.opacity = 0))
 
     document.querySelectorAll('.formData input').forEach((e) => {
