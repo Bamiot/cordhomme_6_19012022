@@ -13,6 +13,7 @@ export default function mediaFactory(
       <source src="${path(video)}" type='video/mp4'>
       <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>`
     videoEL.tabIndex = -1
+    videoEL.setAttribute('aria-label', title)
     return videoEL
   }
 
@@ -33,7 +34,7 @@ export default function mediaFactory(
         <h2>${title}</h2>
         <span id="like">
           <p>${likes}</p>
-          <i class="fas fa-heart" aria-label='likes'></i>
+          <i class="fas fa-heart" aria-label="likes"></i>
         </span>
       </figcaption>
     `

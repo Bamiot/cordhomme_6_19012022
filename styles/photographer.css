@@ -408,11 +408,19 @@ body {
   z-index: 10;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   cursor: pointer;
   font-size: 36px;
   color: #901c1c;
+}
+
+.lb-ctrl i {
+  z-index: -1;
 }
 
 .prev {

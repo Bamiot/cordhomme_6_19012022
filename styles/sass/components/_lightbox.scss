@@ -51,11 +51,14 @@
   z-index: 10;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
+  width: fit-content;
+  height: fit-content;
   cursor: pointer;
   font-size: 36px;
   color: $primary-color;
+  i {
+    z-index: -1;
+  }
 }
 
 .prev {

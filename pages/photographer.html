@@ -24,7 +24,7 @@
       <div class="photograph-header">
         <button class="contact_button" tabindex="2">Contactez-moi</button>
       </div>
-      <span class="filters">
+      <div class="filters">
         <label for="sort-select">Trier par </label>
         <div
           value="popularity"
@@ -32,14 +32,13 @@
           class="primary-select"
           role="list"
           aria-haspopup="listbox"
-          aria-expanded
+          aria-expanded="true"
           tabindex="-1"
         >
           <button
             value="popularity"
-            role="listitem"
+            role="button"
             aria-labelledby="sort-select"
-            aria-selected
             tabindex="3"
           >
             Popularité
@@ -57,7 +56,7 @@
           </button>
           <i class="indicator fas fa-angle-up"></i>
         </div>
-      </span>
+      </div>
       <div id="media-container"></div>
     </main>
     <div id="contact_modal">
@@ -89,15 +88,15 @@
         </form>
       </div>
     </div>
-    <div class="lightbox">
-      <button id="ctrl-prev" class="lb-ctrl prev" aria-label="Previous image">
-        <i class="fas fa-angle-left"></i>
+    <div class="lightbox" aria-label="image closeup view">
+      <button id="ctrl-prev" class="lb-ctrl prev">
+        <i class="fas fa-angle-left" aria-label="Previous image"></i>
       </button>
       <button id="ctrl-next" class="lb-ctrl next" aria-label="Next image">
         <i class="fas fa-angle-right"></i>
       </button>
-      <button id="ctrl-close" class="lb-ctrl close" aria-label="image closeup view">
-        <i class="fas xmark"></i>
+      <button id="ctrl-close" class="lb-ctrl close">
+        <i class="fas xmark" aria-label="image closeup view"></i>
       </button>
       <figure>
         <div class="media" id="lightbox-media"></div>

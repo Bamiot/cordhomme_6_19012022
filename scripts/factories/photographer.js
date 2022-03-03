@@ -18,7 +18,7 @@ export default function photographerFactory({
     const html = `
     <a href="photographer.html?id=${id}">
       <figure>
-        <img src="${picture}" alt="${name}">
+        <img src="${picture}" alt="" aria-label="${name}">
         <figcaption>
           <h2>${name}</h2>
         </figcaption>
